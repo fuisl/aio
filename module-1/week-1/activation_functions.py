@@ -4,14 +4,27 @@ Week: 1
 HW: activation functions
 """
 
-import numpy as np
+# import numpy as np
+from math import e
+
+
+def is_number(n):
+    """
+    check if input is a number.
+    """
+    try:
+        float(n)
+
+    except ValueError:
+        return False
+    return True
 
 
 def sigmoid(x):
     """
     Calculate sigmoid function.
     """
-    return 1 / (1 + np.exp(-x))
+    return 1 / (1 + e**-x)
 
 
 def relu(x):
@@ -25,7 +38,7 @@ def elu(x, alpha=1):
     """
     Calculate ELU function.
     """
-    return x if x > 0 else alpha * (np.exp(x) - 1)
+    return x if x > 0 else alpha * (e**x - 1)
 
 
 def fx(x, func: str):
@@ -37,3 +50,19 @@ def fx(x, func: str):
 
     """
     return func(x)
+
+
+def main():
+    """
+    input and output
+    """
+
+    func = input("Input activation function (sigmoid | relu | elu): ")
+    if func not in ["sigmoid", "relu", "elu"]:
+        raise ValueError(f"{func} is not supported.")
+
+    x = input("Input value: ")
+    if not is_number(x):
+        raise ValueError("x must be a number.")
+
+    print(fx(float(x), func))
