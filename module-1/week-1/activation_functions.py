@@ -41,7 +41,7 @@ def elu(x, alpha=1):
     return x if x > 0 else alpha * (e**x - 1)
 
 
-def fx(x, func: str):
+def fx(x, func_name: str):
     """
     params:
 
@@ -49,6 +49,13 @@ def fx(x, func: str):
     func (str): activation functions [sigmoid, relu, elu]
 
     """
+    if func_name == "sigmoid":
+        func = sigmoid
+    if func_name == "relu":
+        func = relu
+    if func_name == "elu":
+        func = elu
+
     return func(x)
 
 
