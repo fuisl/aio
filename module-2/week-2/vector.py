@@ -47,3 +47,9 @@ def compute_eigenvalues_eigenvectors(matrix):
     """
     eigenvalues, eigenvectors = np.linalg.eig(matrix)
     return eigenvalues, eigenvectors
+
+def compute_cosine(v1, v2):
+    """
+    Compute the cosine of the angle between two vectors
+    """
+    return np.dot(v1, v2) / (np.linalg.norm(v1) * np.linalg.norm(v2))

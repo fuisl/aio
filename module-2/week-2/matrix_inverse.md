@@ -100,4 +100,4 @@ v_2
 \right] = 0
 $$
 
-Solve for $\lambda$: 
+Solve for $\lambda$:
